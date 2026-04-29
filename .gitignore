@@ -1,0 +1,13 @@
+# Excel temporary files
+~$*.xlsx
+~$*.xlsm
+~$*.xlam
+
+# PowerShell temporary files
+*.log
+VSBTek_Build_Result.txt
+VSBTek_Build.vbs
+
+# OS generated files
+.DS_Store
+Thumbs.db
