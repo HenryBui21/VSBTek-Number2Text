@@ -27,6 +27,7 @@ Private Function DocSoInternal(ByVal Amount As Variant, _
     Dim sFull As String, sep As String
     Dim parts() As String
     Dim i As Integer, dgt As Integer
+    Dim sEngPart As String
 
     On Error GoTo ErrorHandler
 
@@ -84,7 +85,22 @@ Private Function DocSoInternal(ByVal Amount As Variant, _
             Result = "Zero Dollar only."
         End If
     ElseIf CurrType = 3 Then ' General English
-        Result = ConvertNumberToTextEng(Amount) & " only."
+        If InStr(sFull, sep) > 0 Then
+            sEngPart = ConvertNumberToTextEng(parts(0))
+        Else
+            sEngPart = ConvertNumberToTextEng(sFull)
+        End If
+        
+        If Len(sLeStr) > 0 Then
+            Result = sEngPart & " point "
+            For i = 1 To Len(sLeStr)
+                dgt = Val(Mid(sLeStr, i, 1))
+                Result = Result & ChonChuEng(dgt) & " "
+            Next i
+            Result = Result & "only."
+        Else
+            Result = sEngPart & " only."
+        End If
     Else
         ' Kieu so thong thuong (Vietnamese): Doc "phay" + tung chu so
         If Len(sLeStr) > 0 Then

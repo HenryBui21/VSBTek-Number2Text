@@ -86,3 +86,9 @@ Private Function Doc3SoEng(ByVal n As Integer) As String
     
     Doc3SoEng = Result
 End Function
+
+Public Function ChonChuEng(ByVal n As Integer) As String
+    Dim Chu As Variant
+    Chu = Array("Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine")
+    ChonChuEng = Chu(n)
+End Function
