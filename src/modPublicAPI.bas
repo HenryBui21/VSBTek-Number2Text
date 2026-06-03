@@ -132,7 +132,7 @@ End Function
 ''' Doc so tuy chinh: =DocSo(so, loai_tien, kieu_chu)
 ''' loai_tien: 1=VND, 2=USD (Eng), 3=English, 0=Common VN
 Public Function DocSo(ByVal Amount As Variant, _
-                      Optional ByVal CurrType As Integer = 1, _
+                      Optional ByVal CurrType As Integer = 0, _
                       Optional ByVal FontType As Integer = 1, _
                       Optional ByVal UseLe As Boolean = True) As String
     DocSo = DocSoInternal(Amount, CurrType, FontType, UseLe)
